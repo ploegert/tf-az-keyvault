@@ -60,7 +60,7 @@ variable "settings"           {
 # ==================================================
 # Resources
 # ==================================================
-resource "azurerm_key_vault" "loki_kv" {
+resource "azurerm_key_vault" "keyvault" {
   name                              = var.kv_name
   location                          = var.location
   resource_group_name               = var.resource_group
@@ -91,6 +91,18 @@ resource "azurerm_key_vault" "loki_kv" {
 
 # resource "azurerm_key_vault" "keyvault" {
 
+output "id" {
+  value = azurerm_key_vault.keyvault.id
+}
+
+output "vault_uri" {
+  value = azurerm_key_vault.keyvault.vault_uri
+}
+
+
+output "name" {
+  value = azurerm_key_vault.keyvault.name
+}
 
 
 #   dynamic "network_acls" {
